@@ -1,0 +1,20 @@
+﻿@model Lanche
+
+<div class = "col-sm-4 col-md-4 col-lg-4">
+    <div class= "divlanches">
+        
+        <h2>@Model.Nome</h2>
+        <p><img src = "@Model.ImagemURL" class = "img-fluid" /></p>
+        <p>@Model.DescricaoCurta</p>
+        <h5 class = "precospace">@Model.Preco.ToString("c")</h5>
+        <a  class = "ContOrFinLink"
+            asp-controller="CarrinhoCompra"
+            asp-action="AdicionarItemNoCarrinhoCompra" 
+            asp-route-lancheid="@Model.LancheId">
+            <div class = "addlanche">
+                <span>Adicionar ao Carrinho</span>
+            </div>
+        </a>
+    </div>
+</div>
+

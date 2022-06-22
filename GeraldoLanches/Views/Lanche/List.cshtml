@@ -1,0 +1,22 @@
+﻿@model LancheListViewModel
+
+@{
+    ViewData["Title"] = "Lanche";
+}
+
+<h1>@Model.CategoriaAtual</h1>
+<div class = "container">
+    <div class = "row">
+        @if(Model.Lanches == null)
+        {
+            <h1>Categoria Inexistente</h1>
+        }
+        else
+        {
+            @foreach (var Lanche in Model.Lanches) {
+            <partial name = "_LancheResumo" for = "@Lanche"/>
+            }
+        }  
+    </div>
+</div>
+   

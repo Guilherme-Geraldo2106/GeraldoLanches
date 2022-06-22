@@ -1,0 +1,117 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.navbar-personal {
+    background-color: #212529;
+}
+
+.navbar-links {
+    color:white;
+}
+
+.divlanches{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.icons{
+    height:20px;
+    width:20px;
+}
+
+.SeuCarrinho{
+    display:inline-block;
+}
+
+.um{
+    display: inline-block;
+}
+
+.dois {
+    height:60px;
+    width:60px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.tabela{
+    margin-top:15px;
+}
+
+.ContOrFinBotao{
+    display:inline-block;
+}
+
+.continuar {
+    background-color: #212529;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+.finalizar {
+    background-color: #212529;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 10px 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.ContOrFinLink {
+    text-decoration: none;
+    color: white;
+}
+
+.ContOrFinLink:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.addlanche {
+    background-color: #212529;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.contact-bar {
+    background-color: #212529;
+    max-width: 503px;
+    min-width: 503px;
+    height: 48px;
+    border: solid 2px gray;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    align-items:center;
+      
+}
+
+
+
+

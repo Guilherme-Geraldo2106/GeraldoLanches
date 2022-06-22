@@ -1,0 +1,45 @@
+﻿@model CarrinhoCompraViewModel
+
+<div class="container-fluid">
+    <div class= "SeuCarrinho">
+        <div class = "um"><h3>Seu Carrinho</h3></div>
+       <div class="dois"><img class = "img-fluid" src="~/Imagens/CarrinhoCompra.gif" /></div> 
+    </div>
+    <div class="tabela">
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>Quantidade</th>
+              <th>Lanche</th>
+              <th>Preço</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+             @foreach (var itens in Model.CarrinhoCompra.carrinhoCompraItens) {
+                <tr>
+                  <td>@itens.Quantidade</td>
+                  <td>@itens.Lanche.Nome</td>
+                  <td>@itens.Lanche.Preco.ToString("c")</td>
+                  <td>@((itens.Quantidade * itens.Lanche.Preco).ToString("c"))</td>
+                  <td><a  asp-controller="CarrinhoCompra"
+                      asp-action="RemoverItemDoCarrinhoCompra" 
+                      asp-route-lancheid="@itens.Lanche.LancheId">
+                      <div class="icons"><img class= "img-fluid" src = "~/Imagens/Lixeira.png" /></div></a>
+                  </td>
+                </tr>
+                }
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td >Valor total do pedido:  @Model.ValorTotalCarrinho.ToString("c")</td>  
+              </tr>
+          </tfoot>
+        </table>
+        <div class="ContOrFinBotao">           
+            <a class="ContOrFinLink" asp-controller="Lanche" asp-action="List"> <div class="continuar"><h5>Continuar Comprando</h5></div></a>            
+            <a class="ContOrFinLink" asp-controller="Lanche" asp-action="List"><div class="finalizar"><h5>Finalizar Pedido</h5></div></a>            
+        </div>
+    </div>
+</div>
