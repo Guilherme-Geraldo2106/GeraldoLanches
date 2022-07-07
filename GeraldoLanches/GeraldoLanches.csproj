@@ -38,6 +38,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\AdminCategorias\Create.cshtml" />
+    <None Include="Areas\Admin\Views\AdminCategorias\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\AdminCategorias\Details.cshtml" />
+    <None Include="Areas\Admin\Views\AdminCategorias\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\AdminCategorias\Index.cshtml" />
+    <None Include="Areas\Admin\Views\AdminImagens\GetImagens.cshtml" />
+    <None Include="Areas\Admin\Views\AdminImagens\Index.cshtml" />
+    <None Include="Areas\Admin\Views\AdminImagens\UploadFiles.cshtml" />
+    <None Include="Areas\Admin\Views\AdminLanches\Create.cshtml" />
+    <None Include="Areas\Admin\Views\AdminLanches\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\AdminLanches\Details.cshtml" />
+    <None Include="Areas\Admin\Views\AdminLanches\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\AdminLanches\Index.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\Create.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\Details.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\Index.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\PedidoLanches.cshtml" />
+    <None Include="Areas\Admin\Views\AdminPedidos\PedidoNotFound.cshtml" />
+    <None Include="Areas\Admin\Views\AdminRelatorioVendas\Index.cshtml" />
+    <None Include="Areas\Admin\Views\AdminRelatorioVendas\RelatorioVendasSimples.cshtml" />
+    <None Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewImports.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -49,7 +79,19 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration" Version="6.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
+    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Imagens\Produtos\" />
   </ItemGroup>
 
 </Project>

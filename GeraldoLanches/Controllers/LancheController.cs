@@ -7,55 +7,72 @@ namespace GeraldoLanches.Controllers
 {
     public class LancheController : Controller
     {
-
-        private readonly ILancheRepository _LancheRepository;
-
+        private readonly ILancheRepository _lancheRepository;
         public LancheController(ILancheRepository lancheRepository)
         {
-            _LancheRepository = lancheRepository;
+            _lancheRepository = lancheRepository;
         }
 
-        public  IActionResult list (string categoria)
+        public IActionResult List(string categoria)
         {
             IEnumerable<Lanche> lanches;
             string categoriaAtual = string.Empty;
-            if (string.IsNullOrEmpty(categoria))
+
+            if(string.IsNullOrEmpty(categoria))
             {
-                lanches = _LancheRepository.Lanches.OrderBy(l => l.LancheId);
-                categoriaAtual = "Todos os Lanches";
-                
+                lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
+                categoriaAtual = "Todos os lanches";
             }
             else
             {
-                if (string.Equals("Normal", categoria, StringComparison.OrdinalIgnoreCase))
-                {
-                    lanches = _LancheRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Normal"))
-                                                       .OrderBy(l => l.Nome);
-                    categoriaAtual = categoria;
+                lanches = _lancheRepository.Lanches
+                          .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
+                          .OrderBy(c => c.Nome);
 
-                }
-                else if(string.Equals("Integral", categoria, StringComparison.OrdinalIgnoreCase))
-                {  
-                    lanches = _LancheRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Integral"))
-                                                           .OrderBy(l => l.Nome);
-                    categoriaAtual = categoria;
-                }
-                else
-                {
-                    lanches = null;
-                    categoriaAtual = null;
-                }
-
-                
+                categoriaAtual = categoria;
             }
 
-            var lancheslistviewmodel = new LancheListViewModel
+            var lanchesListViewModel = new LancheListViewModel
             {
                 Lanches = lanches,
                 CategoriaAtual = categoriaAtual
             };
 
-            return View(lancheslistviewmodel);
+            return View(lanchesListViewModel);
+        }
+
+        public IActionResult Details(int lancheId)
+        {
+            var lanche = _lancheRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
+            return View(lanche);
+        }      
+
+        public ViewResult Search(string searchString)
+        {
+            IEnumerable<Lanche> lanches;
+            string categoriaAtual = string.Empty;
+
+            if (string.IsNullOrEmpty(searchString))
+            {
+                lanches = _lancheRepository.Lanches.OrderBy(p => p.LancheId);
+                categoriaAtual = "Todos os Lanches";
+            }
+            else
+            {
+                 lanches = _lancheRepository.Lanches
+                           .Where(p => p.Nome.ToLower().Contains(searchString.ToLower()));
+
+                if (lanches.Any())
+                    categoriaAtual = "Lanches";
+                else
+                    categoriaAtual = "Nenhum lanche foi encontrado";
+            }
+
+            return View("~/Views/Lanche/List.cshtml", new LancheListViewModel
+            {
+                Lanches = lanches,
+                CategoriaAtual = categoriaAtual
+            });
         }
     }
 }

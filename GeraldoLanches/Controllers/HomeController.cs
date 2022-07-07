@@ -8,7 +8,7 @@ namespace GeraldoLanches.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
         private readonly ILancheRepository _lancherepository;
 
         public HomeController(ILancheRepository lancherepository)

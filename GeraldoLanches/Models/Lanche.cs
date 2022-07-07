@@ -9,40 +9,39 @@ namespace GeraldoLanches.Models
         [Key]
         public int LancheId { get; set; }
 
-        [StringLength(80, MinimumLength = 10, ErrorMessage = "O nome deve conter de 10 a 80 caracteres")]
-        [Required(ErrorMessage = "Digite um nome, para o lanche")]
+        [Required(ErrorMessage = "O nome do lanche deve ser informado")]
         [Display(Name = "Nome do Lanche")]
         public string Nome { get; set; }
 
-        [StringLength(200, MinimumLength = 20,  ErrorMessage = "A descrição curta, deve ter entre 20 e 200 caracteres")]
-        [Required(ErrorMessage = "Digite uma pequena descrição, para o lanche")]
-        [Display(Name = "Descrição Curta")]
+        [Required(ErrorMessage = "A descrição do lanche deve ser informada")]
+        [Display(Name = "Descrição do Lanche")]
         public string DescricaoCurta { get; set; }
 
-        [StringLength(300, ErrorMessage = "Maximo de 300 caracteres ultrapassado")]
-        [Display(Name = "Descrição detalhada")]
+        [Display(Name = "Descrição detalhada do Lanche")]
         public string DescricaoDetalhada { get; set; }
 
+        [Required(ErrorMessage = "Informe o preço do lanche")]
+        [Display(Name = "Preço")]
         [Column(TypeName ="decimal(10,2)")]
-        [Required(ErrorMessage = "Digite um Preço")]
-        [Display(Name = "Preço do lanche")]
-        [Range(1,999.99, ErrorMessage = "O preço deve estar entre 1 e 999.99")]
+        [Range(1,999.99,ErrorMessage ="O preço deve estar entre 1 e 999,99")]
         public decimal Preco { get; set; }
-      
-        [Display(Name = "Imagem normal")]
+
+        [Display(Name = "Caminho Imagem Normal")]
+        [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
         public string ImagemURL { get; set; }
 
-        [Display(Name ="Imagem miniatura")]
+        [Display(Name = "Caminho Imagem Miniatura")]
+        [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
         public string ImagemThumbnailUrl { get; set; }
 
-        [Display(Name ="Preferido ?")]
+        [Display(Name = "Preferido?")]
         public bool IsLanchePreferido { get; set; }
 
-        [Display(Name ="Em estoque ?")]
+        [Display(Name = "Estoque")]
         public bool EmEstoque { get; set; }
 
+        [Display(Name = "Categorias")]
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
-
     }
 }

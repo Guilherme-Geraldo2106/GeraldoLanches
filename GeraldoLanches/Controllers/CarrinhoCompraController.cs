@@ -1,10 +1,12 @@
 ﻿using GeraldoLanches.Models;
 using GeraldoLanches.Repositories.Interfaces;
 using GeraldoLanches.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GeraldoLanches.Controllers
 {
+    [Authorize]
     public class CarrinhoCompraController : Controller
     {
         private readonly ILancheRepository _lancheRepository;
